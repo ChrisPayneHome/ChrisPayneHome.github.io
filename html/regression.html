@@ -65,14 +65,14 @@
                         <p>This clearly shows a positive linear relationship between height and weight. But what if we wanted to be more exact about this relationship? Well, we could just add a line of best fit, like so.</p>
                         <img class="img-fluid" src="/images/height_weight2.png" width="550" height="250">
                         <p>And there we have fitted a regression line. We can also describe this line mathematically with this formula:</p>
-                        <center>Height = 122.80015 + (0.61693 * Weight)</center>
+                        <center>Height = 120.2595 + (0.6595 * Weight)</center>
                         <p>But what does this mean? Well, this formula tells us what we should expect the height to be of any person given their weight. Let’s say that we know the weight of a given person, we could then use this formula to estimate what their height might be by simply filling in their weight. Let’s say that this person weighs 70 kgs, we can amend the formula above:</p>
-                        <center>165.9853 = 122.80015 + (0.61693 * 70)</center>
-                        <p>So, using our model, we estimate that this person is around 1.66 meters tall. What’s more, when we examine our data, we can see that there is a person who weighs around 70 kgs and measures up at around 1.6 meters tall. Not a bad prediction by our model.</p>
+                        <center>166.4245 = 120.2595 + (0.6595 * 70)</center>
+                        <p>So, using our model, we estimate that this person is around 1.66 meters tall. What’s more, when we examine our data, we can see that there is a person who weighs around 70 kgs and measures up at around 1.59 meters tall. Not a bad prediction by our model.</p>
                         <h2 class="section-heading">2. How does regression work?</h2>
                         <p>Single variable (univariate) linear regression equations typically take the following form:</p>
                         <center>y = b + mx</center>
-                        <p>So, let’s break this equation down piece by piece. ‘y’ represents the outcome we are trying to predict. In the previous example, we were trying to predict the people’s height, so height would be our outcome. ‘b’ is a constant value, consider this as our starting point for our prediction before considering anything else. In our previous example, in the unlikely event that we had a person who was weightless, our model would predict that they would be 1.22 meters tall.'m' is an estimated parameter of the relationship between our variable of interest and our outcome. This can tell us about the size of the relationship, as well as whether this relationship is positive or negative. In the previous example we saw not only that the relationship was positive, but specifically that for every added kg of weight, our model predicted that our person would be 0.61693 cm taller.</p>
+                        <p>So, let’s break this equation down piece by piece. ‘y’ represents the outcome we are trying to predict. In the previous example, we were trying to predict the people’s height, so height would be our outcome. ‘b’ is a constant value, consider this as our starting point for our prediction before considering anything else. In our previous example, in the unlikely event that we had a person who was weightless, our model would predict that they would be 1.22 meters tall. 'm' is an estimated parameter of the relationship between our variable of interest and our outcome. This can tell us about the size of the relationship, as well as whether this relationship is positive or negative. In the previous example we saw not only that the relationship was positive, but specifically that for every added kg of weight, our model predicted that our person would be 0.6595 cm taller.</p>
                         <p>But where did we get these numbers from?</p>
                         <p>The estimates for 'm' in the above model are derived using another formula called the 'Ordinary Least Squares' (OLS) formula, and looks like this:</p>
                         <center>
@@ -81,22 +81,23 @@
                                     <tr>
                                         <td style="vertical-align:middle; padding:0px 5px" rowspan=2>
                                         <i>m</i>
-                                         =
+                                        " ="
                                         </td>
                                         <td style="border-bottom:solid 1px; padding:0px 5px">
-                                             ∑(x - x̅) * (y - y̅)
+                                            " ∑(x - x̅) * (y - y̅)"
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="text-align:center">
-                                             ∑(x - x̅)
+                                            " ∑(x - x̅)"
                                             <sup>2</sup>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </center>
-                        <p>Don't worry if it looks complex, all this formula does is help us select the value of m such that the distance between the predicted values of y and the actual values of y are minimised.</p>
+                        <p>Don't worry if it looks complex, all this formula does is help us select the value of m such that the difference between the predicted values of y and the actual values of y are minimised. This process is called minimising the error. Going back to our previous plot, we can plot the errors onto the graph.</p>
+                        <img class="img-fluid" src="/images/height_weight3.png" width="550" height="250">
                     </div>
                 </div>
             </div>
