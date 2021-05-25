@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>A 'non-mathsy' introduction to regression</title>
+        <title>A 'non-mathsy introduction to regression'</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -68,12 +68,35 @@
                         <center>Height = 122.80015 + (0.61693 * Weight)</center>
                         <p>But what does this mean? Well, this formula tells us what we should expect the height to be of any person given their weight. Let’s say that we know the weight of a given person, we could then use this formula to estimate what their height might be by simply filling in their weight. Let’s say that this person weighs 70 kgs, we can amend the formula above:</p>
                         <center>165.9853 = 122.80015 + (0.61693 * 70)</center>
-                        <p>So, using our model, we estimate that this person is around 1.66 meters tall. What’s more, when we examine our data, we can see that there is a person who weighs around 70 kgs and measures up at around 1.6 meters tall. Not a bad prediction by our modelfor our prediction before considering anything else. In our previous example, in the unlikely event that we had a person who was weightless, our model would predict that they would be 1.22 meters tall.'m' is an estimated parameter of the relationship between our variable of interest and our outcome. This can tell us about the size of the relationship, as well as whether this relationship is positive or negative. In the previous example, the model informed us that for every added kg of height we should expect that person's height to be 0.61693 cm taller. And finally, 'x' represents the value we are using to predict the outcome with. This would be a person's weight in our previous example.</p>
+                        <p>So, using our model, we estimate that this person is around 1.66 meters tall. What’s more, when we examine our data, we can see that there is a person who weighs around 70 kgs and measures up at around 1.6 meters tall. Not a bad prediction by our model.</p>
                         <h2 class="section-heading">2. How does regression work?</h2>
                         <p>Single variable (univariate) linear regression equations typically take the following form:</p>
                         <center>y = b + mx</center>
-                        <p>So, let’s break this equation down piece by piece. ‘y’ represents the outcome we are trying to predict. In the previous example, we were trying to predict the people’s height, so height would be our outcome. ‘b’ is a constant value, consider this as our starting pointfor our prediction before considering anything else. Coming back to our model from the previous example, if we had a person who was weightless, our model would predict that they would be 1.22 meters tall. 'm' is an estimated parameter of the relationship between our variable of interest and our outcome. This can tell us about the size of the relationship, as well as whether this relationship is positive or negative. Examining our model from earlier, we not only saw that the relationship was positive, but specifically that for every added kg of weight our model predicted that our person would be 0.61693 cm taller.</p>
-                        
+                        <p>So, let’s break this equation down piece by piece. ‘y’ represents the outcome we are trying to predict. In the previous example, we were trying to predict the people’s height, so height would be our outcome. ‘b’ is a constant value, consider this as our starting point for our prediction before considering anything else. In our previous example, in the unlikely event that we had a person who was weightless, our model would predict that they would be 1.22 meters tall.'m' is an estimated parameter of the relationship between our variable of interest and our outcome. This can tell us about the size of the relationship, as well as whether this relationship is positive or negative. In the previous example we saw not only that the relationship was positive, but specifically that for every added kg of weight, our model predicted that our person would be 0.61693 cm taller.</p>
+                        <p>But where did we get these numbers from?</p>
+                        <p>The estimates for 'm' in the above model are derived using another formula called the 'Ordinary Least Squares' (OLS) formula, and looks like this:</p>
+                        <center>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align:middle; padding:0px 5px" rowspan=2>
+                                        <i>m</i>
+                                        " ="
+                                        </td>
+                                        <td style="border-bottom:solid 1px; padding:0px 5px">
+                                            " ∑(x - x̅) * (y - y̅)"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center">
+                                            " ∑(x - x̅)"
+                                            <sup>2</sup>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </center>
+                        <p>Don't worry if it looks complex, all this formula does is help us select the value of m such that the distance between the predicted values of y and the actual values of y are minimised.</p>
                     </div>
                 </div>
             </div>
@@ -86,7 +109,7 @@
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="https://twitter.com/cpayneathome">
+                                <a href="#!">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -94,7 +117,15 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://github.com/ChrisPayneHome">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
