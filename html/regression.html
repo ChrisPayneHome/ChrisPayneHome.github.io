@@ -96,8 +96,14 @@
                                 </tbody>
                             </table>
                         </center>
-                        <p>Don't worry if it looks complex, all this formula does is help us select the value of m such that the difference between the predicted values of y and the actual values of y are minimised. This process is called minimising the error. Going back to our previous plot, we can plot the errors onto the graph.</p>
+                        <p>Don't worry if it looks complex, all this formula does is help us select the value of m such that the difference between the predicted values of y and the actual values of y are minimised. This process is called minimising the squared error. Why squared? Because squaring a difference will make it positive, so that a positive and negative error won't cancel each other out. Going back to our previous plot, we can plot the errors onto the graph in blue.</p>
                         <img class="img-fluid" src="/images/height_weight3.png" width="550" height="250">
+                        <p>On the topic of errors, there is one final aspect of a regression equation that we have to discuss, this is the error term. So far we have been dealing with point estimates. These are the exact numerical estimates of our model. For example, our earlier prediction of 1.66 meters tall for a person who weighed 70 kgs was a point estimate. Our model also suggested that the height of this person could be 3.466 cm either side of that estimate. We can amend the earlier formula to account for this error:</p>
+                        <center>y = b + mx + e</center>
+                        <p>Filling in the values from our model gives us the following model:</p>
+                        <center>Height = 120.2596 + (0.6595 * Weight) ± 3.466</center>
+                        <p>We can also plot this onto our graph to provide a visual representation.</p>
+                        <img class="img-fluid" src="/images/height_weight4.png" width="550" height="250">
                     </div>
                 </div>
             </div>
