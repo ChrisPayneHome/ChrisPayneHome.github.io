@@ -61,7 +61,7 @@
                         <p>With the 2020-21 Premier League season over, I have been working on a way to apply my predictive AI skills to the problem of football match prediction. Over the past couple of months I have been collecting data on historic performance, transfer data, player stats, and more to construct a dataset on premier league matches.</p>
                         <h2 class="section-heading">Baselines</h2>
                         <p>In order to do so, we first have to develop a baseline of match prediction to compare with our model. A baseline is simply a metric so we can assess the contribution of the model to our prediction accuracy. Guessing randomly is a common baseline to be compared against so we will examine the accuracy of two baseline strategies. Namely guessing randomly between away wins, home wins and draws (strategy 1) and randomly guessing between away or home wins (strategy 2).</p>
-                        <img src="/images/strat_compare.png" width="550" height="350">
+                        <img src="/images/strat_compare.png" width="650" height="450">
                         <p>The above graph compares the prediction accuracy of two baseline strategies over the course of the 20-21 Premier League season. The faint blue lines represent the prediction accuracy of each of 10 simulated seasons where either away or home wins were predicted. While the faint red line showcase the simulated outcomes for the strategy of picking between a home win, an away win, or a draw. The darker lines show the average accuracy for their respective strategies over the course of the season. Using these simulations, we can also estimate the probabilities of achieving any giving win percentage at the end of the season.</p>
                         <table>
                             <tr>
@@ -81,7 +81,7 @@
                             </tr>
                             <tr>
                                 <td>≤50%</td>
-                                <td>1 in 9999999...</td>
+                                <td>1 in 999999...</td>
                                 <td>1 in 61</td>
                             </tr>
                             <tr>
@@ -91,9 +91,11 @@
                             </tr>
                         </table>
                         <p>The odds then get progressively more unachievable from there. So now we know how good randomly guessing would be, exactly how good are the bookies?</p>
-                        <h2 class="section-heading">The opposition</h2>
-                        <p>So how good are the bookies at predicting the ressults of Premier League matches? The graph below shows the accuracy of a number of popular odds makers over the course of the 20-21 Premier League season.</p>
-                        <img src="/images/bet_compare.png" width="550" height="350">
+                        <h2 class="section-heading">The Opposition</h2>
+                        <p>So, how good are the bookies at predicting the ressults of Premier League matches? The graph below shows the accuracy of a number of popular odds makers over the course of the 20-21 Premier League season.</p>
+                        <img src="/images/bet_compare.png" width="650" height="450">
+                        <p>On average, the bookies accuractly predicted around 51.57% of games during the season. William Hill and Bet&Win tied for most accurate correctly predicting 51.84% of all games. What's also interesting is that there are significant differences in the prediction accuracy for each team.</p>
+                        <img src="/images/bet_team.png" width="650" height="450">
                     </div>
                 </div>
             </div>
