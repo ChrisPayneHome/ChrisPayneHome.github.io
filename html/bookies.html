@@ -63,7 +63,7 @@
                         <p>In order to do so, we first have to develop a baseline of match prediction to compare with our model. A baseline is simply a metric so we can assess the contribution of the model to our prediction accuracy. Guessing randomly is a common baseline to be compared against so we will examine the accuracy of two baseline strategies. Namely guessing randomly between away wins, home wins and draws (strategy 1) and randomly guessing between away or home wins (strategy 2).</p>
                         <img src="/images/strat_compare.png" width="650" height="400">
                         <p>The above graph compares the prediction accuracy of two baseline strategies over the course of the 20-21 Premier League season. The faint blue lines represent the prediction accuracy of each of 10 simulated seasons where either away or home wins were predicted. While the faint red line showcase the simulated outcomes for the strategy of picking between a home win, an away win, or a draw. The darker lines show the average accuracy for their respective strategies over the course of the season. Using these simulations, we can also estimate the probabilities of achieving any giving win percentage at the end of the season.</p>
-                        <table>
+                        <table border = "1">
                             <tr>
                                 <th>Accuracy</th>
                                 <th>Strategy 1 odds</th>
@@ -100,7 +100,34 @@
                         <h2 class="section-heading">The Model</h2>
                         <p>Our model is a neural network trained on our dataset, including data from <a href = "https://fbref.com/en/">FBref</a>, <a href= "https://www.football-data.co.uk/">football-data</a>, and Github user <a href= "https://raw.githubusercontent.com/ewenme/transfers/master/data">ewenme</a>. So how well does it perform? Pretty well. Below is a comparison of the accuracy of the model compared with the average bookie over the course of the 20-21 season.</p>
                         <img src="/images/model_compare.png" width="650" height="400">
-                        <p>At first glance, this performance may seem somewhat undewhelming, but the model outperforms the average bookies. The model even outperforms the two most accurate bookies, VC Bet and Bet&Win. Specifically, the model correctly guessed the outcome of 52.11% of games to their 51.84%.</p>
+                        <p>At first glance, this performance may seem somewhat undewhelming, but the model outperforms the average bookies. The model even outperforms the two most accurate bookies, VC Bet and Bet&Win. Specifically, the model correctly guessed the outcome of 52.11% of games to their 51.84%. So now we have a model that outperforms the bookies, how would we perform over the course of the season if we had actually betted with it.</p>
+                        <h2 class="section-heading">Betting with Models</h2>
+                        <p>It was here where I became aware of just how important having a betting strategy was for your performance gambling. You see, you can't just start betting on games and hope to make a profit. You need a strategy. I decided to simulate a couple of strategies combined with the model to see how they perform over the season. Below are a brief description of each of the strategies I chose.</p>
+                        <table border = "1">
+                            <tr>
+                                <th>Strategy</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Strategy 1</td>
+                                <td>Betting 10% of the bank on the predicted outcome</td>
+                            </tr>
+                            <tr>
+                                <td>Strategy 2</td>
+                                <td>Bet 10% but only when the model is >70% sure of the outcome</td>
+                            </tr>
+                            <tr>
+                                <td>Strategy 3</td>
+                                <td>'Expected value' betting strategy as outlined by David Sumpter in his book 'Soccermatics'</td>
+                            </tr>
+                            <tr>
+                                <td>Strategy 4</td>
+                                <td>A more conservative version of the above strategy</td>
+                            </tr>
+                        </table>
+                        <p>I'll quickly explain what strategies 3 and 4 acutally are before I continue. David Sumpter outlines a strategy in his book Soccermatics that revolves around the use of 'expected value'. Expected value is essentially calculating what you would expect to get from the bet given that we have the estimated probabilities and the possible reward/loss. The calculation follows this formula:</p>
+                        <center>(Probability of us being right x potential reward) + (Probability of use being wrong x potential loss)</center>
+                        <p>For strategy 3 this value simply has to be greater than one, while for strategy 4 this value has to be greater than 4. Now that we have covered the strategies, let's see how they performed. The graph below showcases the performance of each of the strategies over the course of the season.</p>
                     </div>
                 </div>
             </div>
