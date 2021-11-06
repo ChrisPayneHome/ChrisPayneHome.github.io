@@ -58,10 +58,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <h1>How do you forecast the outcome of an election?</h1>
-                        <p>Maybe we could just predict the total votes won by each party. That is certainly a possibility, however that wouldn't necessarily tell us who would be in government at the end of the election. For example Hillary Clinton received more votes than Donald Trump in the 2016 election, however it was Trump who resided within the White House for next four years. The same is also true here in the UK, although not to the same degree. The graph below showcases the somewhat shaky correlation between the proportion of seats a party wins and their corresponding vote share.</p>
+                        <p>How would you predict an election? Elections are events with far-reaching consequences, but how would you predict one.</p>
+                        <h1>Votes or Seats</h1>
+                        <p>One potential method is to predict the number of votes earned by each party. Whichever party wins the most votes is the forecast winner. But just because a party, or candidate, earns more votes than another doesn't necessarily mean that that they'll be in government at the conclusion of the election. Examples of this are easy to come by, especially from the USA. In the UK too, vote share doesn't necessarily correlate with the number of seats won by each party. As the graph below should testify.</p>
                         <img class="img-fluid" src="/images/outcome_plot.png" width="600" height="300">
-                        <p>It is interesting to note from this graph, that while three majority governments were formed between 2005-19. No party has received over a majority of the votes cast in any election during this period. Anyway, the </p>
+                        <p>It is interesting to note from this graph, that while three majority governments were formed between 2005-19. No party has received over a majority of the votes cast in any election during this period. Therefore showcasing the importance of focussing on seats as the predictor.</p>
+                        <h1>Polling and Models</h1>
+                        <p>Now that we know what we are predicting, let's start building a model. However, we already have a basic model with the polling data leading up to the election. For example, here is the polling data leading up to the 2005 election.</p>
+                        <img class="img-fluid" src="/images/poll_plot2005.png" width="600" height="300">
+                        <p>Looking at the polling, the race seemed pretty steady with Labour in the lead all the way until election day. The polls even correctly predicted the vote shares for both the Liberal Democrats and combined other parties, as both final results were within the LOESS model's standard errors. However, the models for the Labour and Conservative Parties missed the mark, perhaps owing to late swings from the former to the latter at the polling booth.</p>
                     </div>
                 </div>
             </div>
