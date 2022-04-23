@@ -42,7 +42,7 @@
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
                             <h1>UK Election Forecasting and Prediction</h1>
-                            <h2 class="subheading">Using machine learning to predict UK election outcomes</h2>
+                            <h2 class="subheading">An introduction to using models to predict UK election outcomes</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="../html/about.html">Christian Payne</a>
@@ -70,7 +70,18 @@
                         <p>Not all races are as stable as the election of 2005 however. Indeed more recent elections have exposed some of the issues with forecasting elections using polls. Take the polling for the 2010 election dispayed below.</p>
                         <img class="img-fluid" src="/images/poll_plot2010.png" width="700" height="300">
                         <p>As we can see, not only did the polls fail to predict the voteshares for all but the combined other parties. What's more, the polls also got the order of the parties wrong. As they predicted that the Liberal Democrats would come second, not Labour as was the case on election day.</p>
-                        <p>But how well does a model based on polling forecast an election?</p>
+                        <p>But how well does a model based on polling alone perform at forecasting an election? To answer that question, we're going to have to build and test a model.</p>
+                        <p>I put together some models trained with the following variables for each party, created from polling data from Wikipedia:</p>
+                        <ul type="circle">
+                            <li>The most recent poll numbers</li>
+                            <li>The average of the polls a week before the election</li>
+                            <li>The highest level of support from the polls</li>
+                            <li>The lowest level of support from the polls</li>
+                            <li>The overall linear trend of the polls</li>
+                            <li>A prediction of the final vote share</li>
+                        </ul>
+                        <p>Using these variables, and factoring for incumbancy, I was able to fit a model to predict seat results for the 2019 election. With this model specification, we would have correctly forecast the results of 88% of the seats. Below shows the comparison between the actual resutls and the model's predictions.</p>
+                        <img class="img-fluid" src = "/images/pred_plot.png" width="700" height="300">
                     </div>
                 </div>
             </div>
