@@ -63,10 +63,16 @@
                         <p>One potential method is to predict the number of votes earned by each party. Whichever party wins the most votes is the forecast winner. But just because a party, or candidate, earns more votes than another doesn't necessarily mean that that they'll be in government at the conclusion of the election. Examples of this are easy to come by, especially from the USA. In the UK too, vote share doesn't necessarily correlate with the number of seats won by each party. As the graph below should testify.</p>
                         <img class="img-fluid" src="/images/outcome_plot.png" width="700" height="300">
                         <p>It is interesting to note from this graph, that while three majority governments were formed between 2005-19. No party has received over a majority of the votes cast in any election during this period. Therefore showcasing the importance of focussing on seats as the predictor.</p>
-                        <h1>The Fundementals Approach</h1>
-                        <p>When practitioners are forecasting an election, they will often begin with the 'fundementals'. These include socio-economic and demographic variables that we expect to have an impact on voting behaviour. Using census data from 2011, macroeonomic data, and housing data, we are able to cOnstruct a basic model to predict the outcome of the 2019 general election. Below are the predictions made by this fundementals-based model.</p>
+                        <h1>The Fundamentals Approach</h1>
+                        <p>When practitioners are forecasting an election, they will often begin with the 'fundamentals'. These include socio-economic and demographic variables that we expect to have an impact on voting behaviour. The rationlity being that we would expect areas with a younger population to vote differently than those with an older population, richer different than poorer, etc. For this model, I have constructed variables using the following data:</p>
+                        <ul type="circle">
+                            <li>Census data from 2011</li>
+                            <li>House price data</li>
+                            <li>National macro- and socioeconomic data</li>
+                        </ul>
+                        <p>Using that data we can construct a basic model to predict the results in each constituency, the results of which are shown below</p>
                         <img class="img-fluid" src="/images/fund_pred_plot.png" width="700" height="300">
-                        <p>Focussing on the fundementals, we have a fairly accurate model that would have correctly predicted around 80% of the seats. However, this model would have incorrectly predicted the overall result as a Conservative minority government. Although imperfect, it's certainly a start. The next step should naturally be to add indicators of public political opinion; the polls.</p>
+                        <p>Focussing on the fundementals, we have a fairly accurate model that would have correctly predicted around 80% of the seats. However, this model would have incorrectly predicted the overall result as a Conservative minority government rather than the ma. Although imperfect, it's certainly a start. The next step should naturally be to add indicators of public political opinion; the polls.</p>
                         <h1>Polling and Models</h1>
                         <p>Now we have a basic model from the fundementals approach, we can then further refine the model using polling data. But how good are the polls? For example, here is the polling data leading up to the 2005 election.</p>
                         <img class="img-fluid" src="/images/poll_plot2005.png" width="700" height="300">
@@ -74,8 +80,7 @@
                         <p>Not all races are as stable as the election of 2005 however. Indeed more recent elections have exposed some of the issues with forecasting elections using polls. Take the polling for the 2010 election dispayed below.</p>
                         <img class="img-fluid" src="/images/poll_plot2010.png" width="700" height="300">
                         <p>As we can see, not only did the polls fail to predict the voteshares for all but the combined other parties. What's more, the polls also got the order of the parties wrong. As they predicted that the Liberal Democrats would come second, not Labour as was the case on election day.</p>
-                        <p>But how well does a model based on polling alone perform at forecasting an election? To answer that question, we're going to have to build and test a model.</p>
-                        <p>I put together some models trained with the following variables for each party, created from polling data from Wikipedia:</p>
+                        <p>But how much will adding polling to the model contribute to performance? To answer that I've created the following variables for each party, created from polling data sourced from Wikipedia:</p>
                         <ul type="circle">
                             <li>The last poll numbers</li>
                             <li>The average of the polls a week before the election</li>
@@ -84,7 +89,9 @@
                             <li>The overall linear trend of the polls</li>
                             <li>A prediction of the final vote share</li>
                         </ul>
-                        <p>Using these variables, and factoring for incumbancy, I was able to fit a model to predict seat results for the 2019 election. With this model specification, we would have correctly forecast the results of 88% of the seats. Below shows the comparison between the actual results and the model's predictions. The dotted line here represents the seats needed for a majority (626 seats).</p>
+                        <p>Adding these variables, and factoring for incumbancy, I was able to fit a model to predict seat results for the 2019 election. With this model specification, we would have correctly forecast the results of 88% of the seats. Again I've compared the predictions of this final model with the actual results of the election, as well as the predictions from the fundamentals model built earlier.</p>
+                        <img class="img-fluid" src="/images/final_pred_plot.png" width="700" height="300">
+                        <p>Looking at the graph, our final model was far more bullish on the Conservatives and SNP while more pessimistic on Labour and the Lib Dems. This combined model would have also correctly predicted the final overall result of the election albeit with a much smaller forecasted conservative majority of 4. But what about other predictions made prior to the election? How did our model fare compared to other forecasts?</p>
                     </div>
                 </div>
             </div>
@@ -113,7 +120,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <p class="copyright text-muted">Copyright &copy; Christian Payne's Website 2021</p>
+                        <p class="copyright text-muted">Copyright &copy; Christian Payne's Website 2022</p>
                     </div>
                 </div>
             </div>
