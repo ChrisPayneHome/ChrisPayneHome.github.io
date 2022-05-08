@@ -92,6 +92,30 @@
                         <p>Adding these variables, and factoring for incumbancy, I was able to fit a model to predict seat results for the 2019 election. With this model specification, we would have correctly forecast the results of 88% of the seats. Again I've compared the predictions of this final model with the actual results of the election, as well as the predictions from the fundamentals model built earlier.</p>
                         <img class="img-fluid" src="/images/final_pred_plot.png" width="700" height="300">
                         <p>Looking at the graph, our final model was far more bullish on the Conservatives and SNP while more pessimistic on Labour and the Lib Dems. This combined model would have also correctly predicted the final overall result of the election albeit with a much smaller forecasted conservative majority of 4. But what about other predictions made prior to the election? How did our model fare compared to other forecasts?</p>
+                        <h1>Comparing Models</h1>
+                        <p>It's important to note that when we're talking about accuracy during this section, we're no longer talking about correctly predicting the results of the individual seats but the overall result. For example, let say we have a hypothetical election with three seats:</p>
+                        <table>
+                            <tr>
+                                <th><b>Seat</b></th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                            </tr>
+                            <tr>
+                                <th><b>Predicted Winner</b></th>
+                                <th>Party B</th>
+                                <th>Party A</th>
+                                <th>Party A</th>
+                            </tr>
+                            <tr>
+                                <th><b>Actual Winner</b></th>
+                                <th>Party A</th>
+                                <th>Party B</th>
+                                <th>Party A</th>
+                            </tr>
+                        </table>
+                        <p>Looking at the table the individual seat predictions, our model would have got an individual predictive accuracy of 33.3%. But an overall accuracy of 100% by predicting an overall majority for Party A. This will explain why the stated accuracy of our models will differ than the accuracy numbers mentioned before.</p>
+                        <p>I've taken data on final predictions on the results for the 2019 elections from <a href="https://electionsetc.com/2019/12/12/final-combined-forecast-for-the-2019-general-election/#more-2658">elections etc</a> an invaluable source for election analysis. I've plotted the seat predictions from this source below:</p>
                     </div>
                 </div>
             </div>
