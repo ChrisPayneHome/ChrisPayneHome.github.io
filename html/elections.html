@@ -94,7 +94,7 @@
                         <p>Looking at the graph, our final model was far more bullish on the Conservatives and SNP while more pessimistic on Labour and the Lib Dems. This combined model would have also correctly predicted the final overall result of the election albeit with a much smaller forecasted conservative majority of 4. But what about other predictions made prior to the election? How did our model fare compared to other forecasts?</p>
                         <h1>Comparing Models</h1>
                         <p>It's important to note that when we're talking about accuracy during this section, we're no longer talking about correctly predicting the results of the individual seats but the overall result. For example, let say we have a hypothetical election with three seats:</p>
-                        <table style = "width:100%">
+                        <table style="width:100%">
                             <tr>
                                 <th><b>Seat</b></th>
                                 <th><b>Predicted Winner</b></th>
@@ -119,6 +119,9 @@
                         <p>Looking at the table the individual seat predictions, our model would have got an individual predictive accuracy of 33.3%. But an overall accuracy of 100% by predicting an overall majority for Party A. This will explain why the stated accuracy of our models will differ than the accuracy numbers mentioned before.</p>
                         <p>I've taken data on final predictions on the results for the 2019 elections from <a href="https://electionsetc.com/2019/12/12/final-combined-forecast-for-the-2019-general-election/#more-2658">Elections Etc</a> an invaluable source for election analysis. I've plotted the seat predictions from this source below with the dashed lines to represent the final seat tallies for the parties:</p>
                         <img class="img-fluid" src="/images/elect_forecast.png" width="700" height="300">
+                        <p>Generally, our seat predictions by party appear to fall within the wider distribution of seat projections by the other forecasters. But what about accuracy? Where does our model place compared to the others? Below I have visualised where all the forecasts stand with regards to accuracy:</p>
+                        <img class="img-fluid" src="/images/elect_compare.png" width="700" height="300">
+                        <p>As expected, the fundementals-only model (in red) performs the worst out of all the forecasts, with the final model (in blue). Given the limited complexity of the model, as well as the number of possible additional inputs (local election results, approval ratings, etc), we should be proud of the predictive accuracy of our hastily constructed model. The next step must surely be to add these inputs and produce outputs for the next election. Whenever that may be.</p>
                     </div>
                 </div>
             </div>
