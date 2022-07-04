@@ -82,7 +82,7 @@
                         <style type="text/css">
                         
                                 #mynetwork_tt {
-                                    width: 1000px;
+                                    width: 700px;
                                     height: 700px;
                                     background-color: #222222;
                                     border: 1px solid lightgray;
@@ -175,7 +175,7 @@
                         
                         </script>
 
-                        <p></p>
+                        <p> </p>
                         <p>Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at your favourite characters.</p>
                         <h1>Community Detection</h1>
                         <p>this we can then identify different communities of nodes in the data. For example, one group of characters might interact with rach other more than they would with another group of characters. We can then use an algorithm to identify these groups and display the result visually. For this, we'll be using the Louvain algorithm. In layman's terms this works by identifying communities by looking at density (number of connections) throughout the network.</p>
@@ -193,7 +193,7 @@
                         <style type="text/css">
                         
                                 #mynetwork_tt_com {
-                                    width: 1000px;
+                                    width: 700px;
                                     height: 700px;
                                     background-color: #222222;
                                     border: 1px solid lightgray;
@@ -286,7 +286,7 @@
                         
                         </script>
 
-                        <p></p>
+                        <p> </p>
                         <h1>Measures of Centrality</h1>
                         <p>This is all well and good, but it doesn't settle an obvious thought. Who's the most important character? When dealing with a network there are a number of definitions of 'importance'. For example, would the character that has the most connections be the most important? Or maybe it would be the character that connects the most groups of nodes? Here we will provide measures for four measures of importance:</p>
                         <ul type="circle">
@@ -309,9 +309,112 @@
                         <h1>One Network to Rule Them All</h1>
                         <p>Now that we have our proof of concept network running, I think it's time to let the Spacy model loose on the entire series and build a definitive network. Following all the steps laid out previously I have produced this definitive network</p>
                         
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+                        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+                        <center>
+                        <h1></h1>
+                        </center>
+
+                        <!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+                        <script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+                        
+                        <style type="text/css">
+                        
+                                #mynetwork_all {
+                                    width: 700px;
+                                    height: 700px;
+                                    background-color: #222222;
+                                    border: 1px solid lightgray;
+                                    position: relative;
+                                    float: left;
+                                }
+                            
+
+                            
+
+                            
+
+                        </style>
+
+                        </head>
+
+                        <body>
+                        <div id = "mynetwork_all"></div>
+                        
+                        
+                        <script type="text/javascript">
+                        
+                            // initialize global variables.
+                            var edges_all;
+                            var nodes_all;
+                            var network_all; 
+                            var container_all;
+                            var options_all, data_all;
+                        
+
+                            // This method is responsible for drawing the graph, returns the drawn network
+                            function drawGraph_all() {
+                                var container_all = document.getElementById('mynetwork_all');
 
 
-                        <p></p>
+                            
+                                // parsing and collecting nodes and edges from the python
+                                nodes_all = new vis.DataSet([{"font": {"color": "white"}, "group": 1, "id": "Gandalf", "label": "Gandalf", "shape": "dot", "size": 21}, {"font": {"color": "white"}, "group": 1, "id": "Pippin", "label": "Pippin", "shape": "dot", "size": 11}, {"font": {"color": "white"}, "group": 0, "id": "Frodo", "label": "Frodo", "shape": "dot", "size": 28}, {"font": {"color": "white"}, "group": 3, "id": "Th\u00e9oden", "label": "Th\u00e9oden", "shape": "dot", "size": 16}, {"font": {"color": "white"}, "group": 1, "id": "Denethor", "label": "Denethor", "shape": "dot", "size": 13}, {"font": {"color": "white"}, "group": 1, "id": "Boromir", "label": "Boromir", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "group": 1, "id": "Treebeard", "label": "Treebeard", "shape": "dot", "size": 5}, {"font": {"color": "white"}, "group": 4, "id": "Gimli", "label": "Gimli", "shape": "dot", "size": 14}, {"font": {"color": "white"}, "group": 3, "id": "\u00c9omer", "label": "\u00c9omer", "shape": "dot", "size": 15}, {"font": {"color": "white"}, "group": 1, "id": "Faramir", "label": "Faramir", "shape": "dot", "size": 14}, {"font": {"color": "white"}, "group": 3, "id": "Merry", "label": "Merry", "shape": "dot", "size": 24}, {"font": {"color": "white"}, "group": 3, "id": "\u00c9owyn", "label": "\u00c9owyn", "shape": "dot", "size": 11}, {"font": {"color": "white"}, "group": 4, "id": "Galadriel", "label": "Galadriel", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "group": 1, "id": "Aragorn", "label": "Aragorn", "shape": "dot", "size": 25}, {"font": {"color": "white"}, "group": 2, "id": "Imrahil", "label": "Imrahil", "shape": "dot", "size": 8}, {"font": {"color": "white"}, "group": 3, "id": "Wormtongue", "label": "Wormtongue", "shape": "dot", "size": 8}, {"font": {"color": "white"}, "group": 1, "id": "Sauron", "label": "Sauron", "shape": "dot", "size": 15}, {"font": {"color": "white"}, "group": 0, "id": "Gollum", "label": "Gollum", "shape": "dot", "size": 5}, {"font": {"color": "white"}, "group": 0, "id": "Sam", "label": "Sam", "shape": "dot", "size": 24}, {"font": {"color": "white"}, "group": 1, "id": "Meneldor", "label": "Meneldor", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 1, "id": "Bilbo", "label": "Bilbo", "shape": "dot", "size": 8}, {"font": {"color": "white"}, "group": 1, "id": "Shadowfax", "label": "Shadowfax", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 0, "id": "Fredegar", "label": "Fredegar", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 4, "id": "Legolas", "label": "Legolas", "shape": "dot", "size": 14}, {"font": {"color": "white"}, "group": 0, "id": "Shelob", "label": "Shelob", "shape": "dot", "size": 6}, {"font": {"color": "white"}, "group": 0, "id": "Gorbag", "label": "Gorbag", "shape": "dot", "size": 4}, {"font": {"color": "white"}, "group": 0, "id": "Shagrat", "label": "Shagrat", "shape": "dot", "size": 5}, {"font": {"color": "white"}, "group": 1, "id": "Arwen", "label": "Arwen", "shape": "dot", "size": 3}, {"font": {"color": "white"}, "group": 4, "id": "Elrond", "label": "Elrond", "shape": "dot", "size": 8}, {"font": {"color": "white"}, "group": 0, "id": "Rosie", "label": "Rosie", "shape": "dot", "size": 3}, {"font": {"color": "white"}, "group": 0, "id": "Tom", "label": "Tom", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 3, "id": "Saruman", "label": "Saruman", "shape": "dot", "size": 6}, {"font": {"color": "white"}, "group": 0, "id": "Will", "label": "Will", "shape": "dot", "size": 3}, {"font": {"color": "white"}, "group": 0, "id": "Widow", "label": "Widow", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 1, "id": "Isildur", "label": "Isildur", "shape": "dot", "size": 7}, {"font": {"color": "white"}, "group": 3, "id": "Hirgon", "label": "Hirgon", "shape": "dot", "size": 4}, {"font": {"color": "white"}, "group": 4, "id": "Halbarad", "label": "Halbarad", "shape": "dot", "size": 12}, {"font": {"color": "white"}, "group": 2, "id": "Grimbold", "label": "Grimbold", "shape": "dot", "size": 4}, {"font": {"color": "white"}, "group": 3, "id": "Aldor", "label": "Aldor", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 4, "id": "Elrohir", "label": "Elrohir", "shape": "dot", "size": 6}, {"font": {"color": "white"}, "group": 4, "id": "Elladan", "label": "Elladan", "shape": "dot", "size": 6}, {"font": {"color": "white"}, "group": 3, "id": "Elendil", "label": "Elendil", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 2, "id": "Angbor", "label": "Angbor", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 3, "id": "\u00c9omund", "label": "\u00c9omund", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 4, "id": "Celeborn", "label": "Celeborn", "shape": "dot", "size": 2}, {"font": {"color": "white"}, "group": 0, "id": "Snaga", "label": "Snaga", "shape": "dot", "size": 3}, {"font": {"color": "white"}, "group": 0, "id": "Sm\u00e9agol", "label": "Sm\u00e9agol", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 0, "id": "Landroval", "label": "Landroval", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 0, "id": "Robin", "label": "Robin", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 0, "id": "Ted", "label": "Ted", "shape": "dot", "size": 1}, {"font": {"color": "white"}, "group": 2, "id": "Forlong", "label": "Forlong", "shape": "dot", "size": 3}, {"font": {"color": "white"}, "group": 2, "id": "Herefara", "label": "Herefara", "shape": "dot", "size": 2}]);
+                                edges_all = new vis.DataSet([{"from": "Gandalf", "label": 1, "to": "Pippin", "value": 91, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Frodo", "value": 70, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Th\u00e9oden", "value": 21, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Denethor", "value": 77, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Boromir", "value": 9, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Treebeard", "value": 34, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Gimli", "value": 11, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "\u00c9omer", "value": 13, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Faramir", "value": 73, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Merry", "value": 30, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "\u00c9owyn", "value": 11, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Galadriel", "value": 10, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Aragorn", "value": 92, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Imrahil", "value": 23, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Wormtongue", "value": 20, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Sauron", "value": 20, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Gollum", "value": 6, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Sam", "value": 49, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Meneldor", "value": 6, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Bilbo", "value": 18, "weight": 1}, {"from": "Gandalf", "label": 1, "to": "Shadowfax", "value": 6, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Frodo", "value": 48, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Denethor", "value": 84, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Boromir", "value": 29, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Merry", "value": 109, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Aragorn", "value": 21, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Faramir", "value": 13, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Galadriel", "value": 5, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Treebeard", "value": 4, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Sam", "value": 50, "weight": 1}, {"from": "Pippin", "label": 1, "to": "Fredegar", "value": 4, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Boromir", "value": 3, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Gimli", "value": 12, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Sam", "value": 1211, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Legolas", "value": 11, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Faramir", "value": 9, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Shelob", "value": 12, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Denethor", "value": 5, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Gorbag", "value": 7, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Shagrat", "value": 9, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Gollum", "value": 32, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Galadriel", "value": 13, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Sauron", "value": 4, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Meneldor", "value": 4, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Merry", "value": 70, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Bilbo", "value": 42, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Aragorn", "value": 15, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Arwen", "value": 3, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Th\u00e9oden", "value": 5, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Elrond", "value": 12, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Rosie", "value": 16, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Tom", "value": 10, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Saruman", "value": 11, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Wormtongue", "value": 15, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Fredegar", "value": 5, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Will", "value": 8, "weight": 1}, {"from": "Frodo", "label": 1, "to": "Widow", "value": 10, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Boromir", "value": 61, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Th\u00e9oden", "value": 10, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Isildur", "value": 11, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Faramir", "value": 84, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Hirgon", "value": 19, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Merry", "value": 1, "weight": 1}, {"from": "Denethor", "label": 1, "to": "\u00c9omer", "value": 5, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Sauron", "value": 7, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Aragorn", "value": 4, "weight": 1}, {"from": "Denethor", "label": 1, "to": "Imrahil", "value": 10, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Th\u00e9oden", "value": 7, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Aragorn", "value": 10, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Isildur", "value": 6, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Faramir", "value": 20, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Merry", "value": 6, "weight": 1}, {"from": "Boromir", "label": 1, "to": "Sauron", "value": 5, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Saruman", "value": 6, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Aragorn", "value": 28, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Merry", "value": 59, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "\u00c9omer", "value": 77, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Sauron", "value": 6, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Halbarad", "value": 4, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "\u00c9owyn", "value": 15, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Hirgon", "value": 10, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Grimbold", "value": 5, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Wormtongue", "value": 9, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Faramir", "value": 5, "weight": 1}, {"from": "Th\u00e9oden", "label": 1, "to": "Aldor", "value": 5, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Merry", "value": 55, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Legolas", "value": 49, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Gimli", "value": 93, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Halbarad", "value": 22, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Elrohir", "value": 20, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "\u00c9omer", "value": 65, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Isildur", "value": 9, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Sauron", "value": 30, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "\u00c9owyn", "value": 11, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Elladan", "value": 2, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Elendil", "value": 5, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Galadriel", "value": 6, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Imrahil", "value": 23, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Faramir", "value": 15, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Saruman", "value": 7, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Angbor", "value": 9, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Sam", "value": 8, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Treebeard", "value": 22, "weight": 1}, {"from": "Aragorn", "label": 1, "to": "Bilbo", "value": 1, "weight": 1}, {"from": "Treebeard", "label": 1, "to": "Gimli", "value": 1, "weight": 1}, {"from": "Treebeard", "label": 1, "to": "Bilbo", "value": 1, "weight": 1}, {"from": "Isildur", "label": 1, "to": "Legolas", "value": 5, "weight": 1}, {"from": "Isildur", "label": 1, "to": "Sauron", "value": 25, "weight": 1}, {"from": "Isildur", "label": 1, "to": "Halbarad", "value": 6, "weight": 1}, {"from": "Isildur", "label": 1, "to": "Arwen", "value": 5, "weight": 1}, {"from": "Faramir", "label": 1, "to": "Gollum", "value": 7, "weight": 1}, {"from": "Faramir", "label": 1, "to": "\u00c9omer", "value": 5, "weight": 1}, {"from": "Faramir", "label": 1, "to": "Sauron", "value": 3, "weight": 1}, {"from": "Faramir", "label": 1, "to": "Elrond", "value": 4, "weight": 1}, {"from": "Faramir", "label": 1, "to": "\u00c9owyn", "value": 50, "weight": 1}, {"from": "Faramir", "label": 1, "to": "Sam", "value": 21, "weight": 1}, {"from": "Faramir", "label": 1, "to": "Merry", "value": 11, "weight": 1}, {"from": "Merry", "label": 1, "to": "Gimli", "value": 40, "weight": 1}, {"from": "Merry", "label": 1, "to": "Halbarad", "value": 5, "weight": 1}, {"from": "Merry", "label": 1, "to": "Legolas", "value": 35, "weight": 1}, {"from": "Merry", "label": 1, "to": "Elrohir", "value": 4, "weight": 1}, {"from": "Merry", "label": 1, "to": "\u00c9omer", "value": 35, "weight": 1}, {"from": "Merry", "label": 1, "to": "\u00c9owyn", "value": 47, "weight": 1}, {"from": "Merry", "label": 1, "to": "Hirgon", "value": 5, "weight": 1}, {"from": "Merry", "label": 1, "to": "\u00c9omund", "value": 1, "weight": 1}, {"from": "Merry", "label": 1, "to": "Elrond", "value": 4, "weight": 1}, {"from": "Merry", "label": 1, "to": "Imrahil", "value": 2, "weight": 1}, {"from": "Merry", "label": 1, "to": "Shelob", "value": 4, "weight": 1}, {"from": "Merry", "label": 1, "to": "Saruman", "value": 13, "weight": 1}, {"from": "Merry", "label": 1, "to": "Wormtongue", "value": 6, "weight": 1}, {"from": "Merry", "label": 1, "to": "Sam", "value": 74, "weight": 1}, {"from": "Merry", "label": 1, "to": "Will", "value": 5, "weight": 1}, {"from": "Merry", "label": 1, "to": "Rosie", "value": 6, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Gimli", "value": 234, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Halbarad", "value": 4, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Elladan", "value": 13, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Galadriel", "value": 6, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Elrond", "value": 5, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Sauron", "value": 2, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Imrahil", "value": 23, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Sam", "value": 6, "weight": 1}, {"from": "Legolas", "label": 1, "to": "\u00c9owyn", "value": 6, "weight": 1}, {"from": "Legolas", "label": 1, "to": "Shadowfax", "value": 6, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Halbarad", "value": 17, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Galadriel", "value": 2, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Sauron", "value": 11, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Elladan", "value": 21, "weight": 1}, {"from": "Gimli", "label": 1, "to": "\u00c9owyn", "value": 5, "weight": 1}, {"from": "Gimli", "label": 1, "to": "\u00c9omer", "value": 30, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Sam", "value": 15, "weight": 1}, {"from": "Gimli", "label": 1, "to": "Elrond", "value": 6, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "Saruman", "value": 3, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "Elladan", "value": 11, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "Elrohir", "value": 5, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "Elrond", "value": 6, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "\u00c9omer", "value": 3, "weight": 1}, {"from": "Halbarad", "label": 1, "to": "Grimbold", "value": 6, "weight": 1}, {"from": "Saruman", "label": 1, "to": "Wormtongue", "value": 6, "weight": 1}, {"from": "Elladan", "label": 1, "to": "Elrohir", "value": 24, "weight": 1}, {"from": "Elladan", "label": 1, "to": "Celeborn", "value": 6, "weight": 1}, {"from": "Elrohir", "label": 1, "to": "\u00c9omer", "value": 9, "weight": 1}, {"from": "Elrohir", "label": 1, "to": "Sauron", "value": 3, "weight": 1}, {"from": "Galadriel", "label": 1, "to": "Sam", "value": 36, "weight": 1}, {"from": "Galadriel", "label": 1, "to": "Sauron", "value": 5, "weight": 1}, {"from": "Galadriel", "label": 1, "to": "Celeborn", "value": 5, "weight": 1}, {"from": "Galadriel", "label": 1, "to": "Bilbo", "value": 9, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "Wormtongue", "value": 8, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "\u00c9owyn", "value": 87, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "Hirgon", "value": 10, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "Imrahil", "value": 36, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "Elendil", "value": 6, "weight": 1}, {"from": "\u00c9omer", "label": 1, "to": "Aldor", "value": 5, "weight": 1}, {"from": "Elrond", "label": 1, "to": "Sam", "value": 12, "weight": 1}, {"from": "Elrond", "label": 1, "to": "Bilbo", "value": 5, "weight": 1}, {"from": "Sauron", "label": 1, "to": "\u00c9owyn", "value": 7, "weight": 1}, {"from": "Sauron", "label": 1, "to": "Sam", "value": 28, "weight": 1}, {"from": "Sauron", "label": 1, "to": "Shelob", "value": 5, "weight": 1}, {"from": "\u00c9owyn", "label": 1, "to": "\u00c9omund", "value": 6, "weight": 1}, {"from": "\u00c9owyn", "label": 1, "to": "Wormtongue", "value": 5, "weight": 1}, {"from": "Sam", "label": 1, "to": "Shelob", "value": 21, "weight": 1}, {"from": "Sam", "label": 1, "to": "Shagrat", "value": 77, "weight": 1}, {"from": "Sam", "label": 1, "to": "Gorbag", "value": 11, "weight": 1}, {"from": "Sam", "label": 1, "to": "Bilbo", "value": 35, "weight": 1}, {"from": "Sam", "label": 1, "to": "Snaga", "value": 4, "weight": 1}, {"from": "Sam", "label": 1, "to": "Gollum", "value": 51, "weight": 1}, {"from": "Sam", "label": 1, "to": "Rosie", "value": 71, "weight": 1}, {"from": "Sam", "label": 1, "to": "Sm\u00e9agol", "value": 6, "weight": 1}, {"from": "Sam", "label": 1, "to": "Landroval", "value": 5, "weight": 1}, {"from": "Sam", "label": 1, "to": "Wormtongue", "value": 6, "weight": 1}, {"from": "Sam", "label": 1, "to": "Robin", "value": 9, "weight": 1}, {"from": "Sam", "label": 1, "to": "Will", "value": 12, "weight": 1}, {"from": "Sam", "label": 1, "to": "Ted", "value": 5, "weight": 1}, {"from": "Gollum", "label": 1, "to": "Shelob", "value": 6, "weight": 1}, {"from": "Arwen", "label": 1, "to": "Bilbo", "value": 6, "weight": 1}, {"from": "Imrahil", "label": 1, "to": "Forlong", "value": 3, "weight": 1}, {"from": "Imrahil", "label": 1, "to": "Angbor", "value": 3, "weight": 1}, {"from": "Forlong", "label": 1, "to": "Grimbold", "value": 5, "weight": 1}, {"from": "Forlong", "label": 1, "to": "Herefara", "value": 5, "weight": 1}, {"from": "Grimbold", "label": 1, "to": "Herefara", "value": 6, "weight": 1}, {"from": "Shelob", "label": 1, "to": "Shagrat", "value": 6, "weight": 1}, {"from": "Shagrat", "label": 1, "to": "Gorbag", "value": 40, "weight": 1}, {"from": "Shagrat", "label": 1, "to": "Snaga", "value": 18, "weight": 1}, {"from": "Gorbag", "label": 1, "to": "Snaga", "value": 3, "weight": 1}]);
+                            
+                                // adding nodes and edges to the graph
+                                data_all = {nodes: nodes_all, edges: edges_all};
+                            
+                                var options_all = {
+                            "configure": {
+                                "enabled": false
+                            },
+                            "edges": {
+                                "color": {
+                                    "inherit": true
+                                },
+                                "smooth": {
+                                    "enabled": true,
+                                    "type": "dynamic"
+                                }
+                            },
+                            "interaction": {
+                                "dragNodes": true,
+                                "hideEdgesOnDrag": false,
+                                "hideNodesOnDrag": false
+                            },
+                            "physics": {
+                                "enabled": true,
+                                "stabilization": {
+                                    "enabled": true,
+                                    "fit": true,
+                                    "iterations": 1000,
+                                    "onlyDynamicEdges": false,
+                                    "updateInterval": 50
+                                }
+                            }
+                        };
+
+
+
+
+
+                                network_all = new vis.Network(container_all, data_all, options_all);
+
+
+
+
+
+
+                                return network_all;
+
+                            }
+                        
+                            drawGraph_all();
+                        
+                        </script>
+
+                        <p> </p>
                         <p>Pretty cool. One final thing we can do is visualise how the importance of characters has evolved over time. We could do this by measuring the centrality for each of the characters in the fellowship, and plotting their importance by book. We can see this plot below</p>
                         <img class="img-fluid" src="/images/LOTR_all_evolve.png" width="700" height="300">
                         <p>Here we can see that Frodo starts out strong, while Aragorn becomes progressively more important. What's also interesting is that whilst Merry goes from strength to strength with regards to his centrality, Pippin remains the least important and actually becomes less important as the series goes on.</p>
