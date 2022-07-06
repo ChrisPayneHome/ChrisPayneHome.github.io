@@ -174,8 +174,7 @@
                             drawGraph_tt();
                         
                         </script>
-                        <br>
-                        <p>Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
+                        <p style="margin-top:3cm;">Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
                         <h1>Community Detection</h1>
                         <p>With this initial network we can then identify different communities of nodes in the data. For example, one group of characters might interact with each other more than they would with another group of characters. We can then use an algorithm to identify these groups and display the result visually. For this, we'll be using the Louvain algorithm. In layman's terms this works by identifying communities by looking at density (number of connections) throughout the network.</p>
                         <p>Once we've run this algorithm for all the characters in our network, we can then visualise these communities on another network with color coding to represent the different communities the algorithm has identified.</p>
@@ -283,8 +282,7 @@
                             drawGraph_tt_com();
                         
                         </script>
-                        <br>
-                        <h1>Measures of Centrality</h1>
+                        <h1 style="margin-top:3cm;">Measures of Centrality</h1>
                         <p>This is all well and good, but it doesn't settle an obvious next thought. Who's the most important character in the Two Towers? When dealing with a network there are a number of definitions of 'importance'. For example, would the character that has the most connections be the most important? Or maybe the character that serves as the best "bridge" between groups of nodes? Here we will provide measures for four definitions of importance:</p>
                         <ul type="circle">
                             <li><b>Degree Centrality</b>: which characters have the most connections</li>
@@ -410,8 +408,7 @@
                             drawGraph_all();
                         
                         </script>
-                        <br>
-                        <p>One final thing we can do is visualise how the importance of characters has evolved over time. We could do this by measuring the centrality for each of the characters in the fellowship, and plotting their importance by book. We can see this plot below</p>
+                        <p style="margin-top:3cm;">One final thing we can do is visualise how the importance of characters has evolved over time. We could do this by measuring the centrality for each of the characters in the fellowship, and plotting their importance by book. We can see this plot below</p>
                         <img class="img-fluid" src="/images/LOTR_all_evolve.png" width="700" height="300">
                         <p>Here we can see that Frodo starts out strong, while Aragorn becomes progressively more important. What's also interesting is that whilst Merry goes from strength to strength with regards to his centrality; Pippin remains the least important character in the fellowship and actually becomes less important as the series goes on.</p>
                         <h1>There and Back Again</h1>
