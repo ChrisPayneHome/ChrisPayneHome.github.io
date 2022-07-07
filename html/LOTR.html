@@ -58,7 +58,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this I was recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a> that built a character reatlionship network for the Witcher series. Given that I've never worked with network data before, I thought conducting a similar analysis with Tolkein's characters would be a great project to familiarise myself with network analysis.</p>
+                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this, I was also recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a> that built a character reatlionship network for the Witcher series. Given that I've never worked with network data before, I thought conducting a similar analysis with Tolkein's characters would be a great project to familiarise myself with network analysis.</p>
                         <p>All of the code used for this analysis, as well as the outputs, are all stored on my repo <a href="https://github.com/ChrisPayneHome/LOTR-Network">here</a></p>
                         <h1>Extracting Character Relationships</h1>
                         <p>The first thing we need to do is create the relationship data from the books. For this we'll be using the English language model from the Spacy library. Spacy is a pre-trained natural language model that is designed to extract entities from text. This makes it particularly good at identifying characters from sentences in a book for example. After loading the model, I decided to coduct a proof of concept analysis by only using The Two Towers first. Letting the model loose on the book returned the following output.</p>
@@ -99,7 +99,7 @@
 
                         </head>
 
-                        <body style="margin-bottom:3cm">
+                        <body style="margin-bottom:3cm";>
                         <div id = "mynetwork_tt"></div>
                         
                         
@@ -175,7 +175,7 @@
                         
                         </script>
                         </body>
-                        <p margin-top="3cm">Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
+                        <p>Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
                         <h1>Community Detection</h1>
                         <p>With this initial network we can then identify different communities of nodes in the data. For example, one group of characters might interact with each other more than they would with another group of characters. We can then use an algorithm to identify these groups and display the result visually. For this, we'll be using the Louvain algorithm. In layman's terms this works by identifying communities by looking at density (number of connections) throughout the network.</p>
                         <p>Once we've run this algorithm for all the characters in our network, we can then visualise these communities on another network with color coding to represent the different communities the algorithm has identified.</p>
@@ -208,7 +208,7 @@
 
                         </head>
 
-                        <body style="margin-bottom:3cm">
+                        <body style="margin-bottom:3cm";>
                         <div id = "mynetwork_tt_com"></div>
                         
                         
@@ -335,7 +335,7 @@
 
                         </head>
 
-                        <body style="margin-bottom:3cm">
+                        <body style="margin-bottom:3cm";>
                         <div id = "mynetwork_all"></div>
                         
                         
