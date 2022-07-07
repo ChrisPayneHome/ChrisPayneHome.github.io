@@ -58,7 +58,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this, I was also recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a> that built a character reatlionship network for the Witcher series. Given that I've never worked with network data before, I thought conducting a similar analysis with Tolkein's characters would be a great project to familiarise myself with network analysis.</p>
+                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this, I was also recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a> that built a character relationship network for the Witcher series. Given that I've never worked with network data before, I thought conducting a similar analysis with Tolkein's characters would be a great project to familiarise myself with network analysis.</p>
                         <p>All of the code used for this analysis, as well as the outputs, are all stored on my repo <a href="https://github.com/ChrisPayneHome/LOTR-Network">here</a></p>
                         <h1>Extracting Character Relationships</h1>
                         <p>The first thing we need to do is create the relationship data from the books. For this we'll be using the English language model from the Spacy library. Spacy is a pre-trained natural language model that is designed to extract entities from text. This makes it particularly good at identifying characters from sentences in a book for example. After loading the model, I decided to coduct a proof of concept analysis by only using The Two Towers first. Letting the model loose on the book returned the following output.</p>
@@ -85,10 +85,9 @@
                                     width: 700px;
                                     height: 700px;
                                     background-color: #222222;
-                                    border: 1px solid lightgray;
+                                    border: 1cm solid lightgray;
                                     position: relative;
                                     float: left;
-                                    padding-bottom: 1.5cm rgb(255, 254, 254);
                                 }
                             
 
