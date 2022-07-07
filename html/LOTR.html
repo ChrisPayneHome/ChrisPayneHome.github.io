@@ -58,12 +58,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this I was recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a>. Given that I've never working with network data before, I thought conducting a similar analysis would be a great project.</p>
+                        <p>Okay, so I haven't read the Lord of Rings series. Although I did read the Hobbit, love the films, and the many games that came out of Tolkien's writings. Despite this major failing however, I love the characters and the world. Given this I was recently inspired by this <a href="https://www.youtube.com/watch?v=fAHkJ_Dhr50">YouTube video</a> and <a href="https://github.com/thu-vu92/the_witcher_network">accompanying repo</a> that built a character reatlionship network for the Witcher series. Given that I've never worked with network data before, I thought conducting a similar analysis with Tolkein's characters would be a great project to familiarise myself with network analysis.</p>
                         <p>All of the code used for this analysis, as well as the outputs, are all stored on my repo <a href="https://github.com/ChrisPayneHome/LOTR-Network">here</a></p>
                         <h1>Extracting Character Relationships</h1>
-                        <p>The first thing we need to do is create the relationship data from the books. For this we'll be using the English language model from the Spacy library. Spacy is a pre-trained natural language model that is designed to extract 'entities' from text. This makes it particularly good at identifying characters from sentences in a book. After loading the model, I decided to coduct a proof of concept investigation by using The Two Towers book. Letting the model loose on the book, returns the following output.</p>
+                        <p>The first thing we need to do is create the relationship data from the books. For this we'll be using the English language model from the Spacy library. Spacy is a pre-trained natural language model that is designed to extract entities from text. This makes it particularly good at identifying characters from sentences in a book for example. After loading the model, I decided to coduct a proof of concept analysis by only using The Two Towers first. Letting the model loose on the book returned the following output.</p>
                         <img class="img-fluid" src="/images/LOTR_spacy.png" width="700" height="300">
-                        <p>Pretty good right, albeit not perfect. Particularly when the model attempts to determine the class of the entity (person, group, etc). However, it generally seems pretty decent at extracting the  characters from sentences. With this we can then move onto extracting those entities and filtering them.</p>
+                        <p>Pretty good, albeit not perfect. Particularly when the model attempts to determine the class of the entity (person, group, etc). However, it generally seems pretty decent at extracting the  characters from sentences. With this we can then move onto extracting those entities and filtering them.</p>
                         <p>The next thing we'll need is a list of characters so we can filter through the model's output. For this purpose, I have scraped a list of character names from <a href="https://www.scarymommy.com/lord-of-the-rings-names#:~:text=Lord%20of%20the%20Rings%20Characters%20From%20the%20Movies,Baggins%209%20Balin%2010%20Beechbone%20More%20items...%20">here</a> and manually edited a couple of them so they're more representative of the names used in the book. This list of character names is not perfect, and a better alternative would be to use a csv file with a field for alternative names (such as Strider or Mithrandir), but it'll work for now. Using this names list we can generate the character to character relationship data by filtering the output of the spacy model to produce individual connections between characters. Summing these individual connections together gives us the total value for these relationships in the book.</p>
                         <img class="img-fluid" src="/images/LOTR_data.png" width="250" height="344">
                         <p>I've included an extract of this network data above and it will serve as the basis for building the network.</p>
@@ -174,7 +174,8 @@
                             drawGraph_tt();
                         
                         </script>
-                        <p style="margin-top:3cm;">Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
+                        </body>
+                        <p>Pretty cool, right? Feel free to have to play around with the dynamic network graph, and take a look at the relationships between your favourite characters. The network is dynamic so feel free to move the nodes around or rotate the network.</p>
                         <h1>Community Detection</h1>
                         <p>With this initial network we can then identify different communities of nodes in the data. For example, one group of characters might interact with each other more than they would with another group of characters. We can then use an algorithm to identify these groups and display the result visually. For this, we'll be using the Louvain algorithm. In layman's terms this works by identifying communities by looking at density (number of connections) throughout the network.</p>
                         <p>Once we've run this algorithm for all the characters in our network, we can then visualise these communities on another network with color coding to represent the different communities the algorithm has identified.</p>
@@ -282,7 +283,8 @@
                             drawGraph_tt_com();
                         
                         </script>
-                        <h1 style="margin-top:3cm;">Measures of Centrality</h1>
+                        </body>
+                        <h1>Measures of Centrality</h1>
                         <p>This is all well and good, but it doesn't settle an obvious next thought. Who's the most important character in the Two Towers? When dealing with a network there are a number of definitions of 'importance'. For example, would the character that has the most connections be the most important? Or maybe the character that serves as the best "bridge" between groups of nodes? Here we will provide measures for four definitions of importance:</p>
                         <ul type="circle">
                             <li><b>Degree Centrality</b>: which characters have the most connections</li>
@@ -408,7 +410,8 @@
                             drawGraph_all();
                         
                         </script>
-                        <p style="margin-top:3cm;">One final thing we can do is visualise how the importance of characters has evolved over time. We could do this by measuring the centrality for each of the characters in the fellowship, and plotting their importance by book. We can see this plot below</p>
+                        </body>
+                        <p>One final thing we can do is visualise how the importance of characters has evolved over time. We could do this by measuring the centrality for each of the characters in the fellowship, and plotting their importance by book. We can see this plot below</p>
                         <img class="img-fluid" src="/images/LOTR_all_evolve.png" width="700" height="300">
                         <p>Here we can see that Frodo starts out strong, while Aragorn becomes progressively more important. What's also interesting is that whilst Merry goes from strength to strength with regards to his centrality; Pippin remains the least important character in the fellowship and actually becomes less important as the series goes on.</p>
                         <h1>There and Back Again</h1>
