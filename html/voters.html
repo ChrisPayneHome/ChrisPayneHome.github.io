@@ -58,7 +58,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                            <title>rglWebGL</title>
+                                <title>rglWebGL</title>
                                 <script>(function() {
                                 // If window.HTMLWidgets is already defined, then use it; otherwise create a
                                 // new object. This allows preceding code to set options that affect the
@@ -263,6 +263,17 @@
                                 // Retrieves runtime widget sizing information for an element.
                                 // The return value is either null, or an object with fill, padding,
                                 // defaultWidth, defaultHeight fields.
+                                function sizingPolicy(el) {
+                                    var sizingEl = document.querySelector("script[data-for='" + el.id + "'][type='application/htmlwidget-sizing']");
+                                    if (!sizingEl)
+                                    return null;
+                                    var sp = JSON.parse(sizingEl.textContent || sizingEl.text || "{}");
+                                    if (viewerMode) {
+                                    return sp.viewer;
+                                    } else {
+                                    return sp.browser;
+                                    }
+                                }
                                 
                                 // @param tasks Array of strings (or falsy value, in which case no-op).
                                 //   Each element must be a valid JavaScript expression that yields a
@@ -317,6 +328,52 @@
                                     return result;
                                 }
                                 
+                                function initSizing(el) {
+                                    var sizing = sizingPolicy(el);
+                                    if (!sizing)
+                                    return;
+                                
+                                    var cel = document.getElementById("htmlwidget_container");
+                                    if (!cel)
+                                    return;
+                                
+                                    if (typeof(sizing.padding) !== "undefined") {
+                                    document.body.style.margin = "0";
+                                    document.body.style.padding = paddingToCss(unpackPadding(sizing.padding));
+                                    }
+                                
+                                    if (sizing.fill) {
+                                    document.body.style.overflow = "hidden";
+                                    document.body.style.width = "100%";
+                                    document.body.style.height = "100%";
+                                    document.documentElement.style.width = "100%";
+                                    document.documentElement.style.height = "100%";
+                                    if (cel) {
+                                        cel.style.position = "absolute";
+                                        var pad = unpackPadding(sizing.padding);
+                                        cel.style.top = pad.top + "px";
+                                        cel.style.right = pad.right + "px";
+                                        cel.style.bottom = pad.bottom + "px";
+                                        cel.style.left = pad.left + "px";
+                                        el.style.width = "100%";
+                                        el.style.height = "100%";
+                                    }
+                                
+                                    return {
+                                        getWidth: function() { return cel.offsetWidth; },
+                                        getHeight: function() { return cel.offsetHeight; }
+                                    };
+                                
+                                    } else {
+                                    el.style.width = px(sizing.width);
+                                    el.style.height = px(sizing.height);
+                                
+                                    return {
+                                        getWidth: function() { return el.offsetWidth; },
+                                        getHeight: function() { return el.offsetHeight; }
+                                    };
+                                    }
+                                }
                                 
                                 // Default implementations for methods
                                 var defaults = {
@@ -532,6 +589,16 @@
                                             el.style.visibility = "inherit";
                                         }
                                         }
+                                        if (!elementData(el, "initialized")) {
+                                        initSizing(el);
+                                
+                                        elementData(el, "initialized", true);
+                                        if (bindingDef.initialize) {
+                                            var result = bindingDef.initialize(el, el.offsetWidth,
+                                            el.offsetHeight);
+                                            elementData(el, "init_result", result);
+                                        }
+                                        }
                                         bindingDef.renderValue(el, data.x, elementData(el, "init_result"));
                                         evalAndRun(data.jsHooks.render, elementData(el, "init_result"), [el, data.x]);
                                     };
@@ -568,7 +635,7 @@
                                     forEach(bindings, function(binding) {
                                     var matches = binding.find(document.documentElement);
                                     forEach(matches, function(el) {
-                            
+                                        var sizeObj = initSizing(el, binding);
                                 
                                         if (hasClass(el, "html-widget-static-bound"))
                                         return;
