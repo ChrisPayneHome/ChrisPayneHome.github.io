@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <p>Given the recent talk about new Conservative leadership candidates and their potential to hold the 2019 Conservative coalition together, I've bee thinking about voters. Specifically I've been thinking about types of voters. Lots of voters focus on voters classed by their liklihood to vote, for the purposes of campaigning. But what about identifying groups of voters using more than just their propensity to vote.</p>
-                        <h1>Clustering Voters</h1>
+                        <h1>Voter Data</h1>
                         <p>The data we'll be using is the latest wave of the <a href="https://www.britishelectionstudy.com/data-object/wave-21-of-the-2014-2023-british-election-study-internet-panel/">British Election Study (BES) panel study</a>. This data contains interesting fields concerning, including the left-right alignment of voters. Below I've provided a plot showcasing the left/right alignment of voters by their vote in the 2019 general election.</p>
                         <div>
                         <head>
@@ -1996,7 +1996,11 @@
                         <script type="application/htmlwidget-sizing" data-for="htmlwidget-e6e70127853e4208ac1c">{"viewer":{"width":"100%","height":600,"padding":0,"fill":true},"browser":{"width":"100%","height":600,"padding":0,"fill":false}}</script>
                         </body>
                         </div>
-                        <p>The data also contains data on voter demographics as well as their best recollection of previous voting behaviour.</p>
+                        <p>The data also contains data on voter demographics as well as the respondant's best recollection of their previous voting behaviour. Altogether, the BES panel is an incredibly rich dataset for exploring voter behaviour.</p>
+                        <h1>Clustering Voters</h1>
+                        <p>For the cluster modelling, we'll be using the k-means clustering algorithm. In layman's terms, the algorithm works by placing k points throughout the data, called "centroids". Where 'k' is some number that we have to determine prior to fitting the algorithm. The points that are closest to that centroid are identified as being in that centroid's cluster. How much of the data is explained by those centroids is then calculated. Then the centroids move, and the process starts again. This continues until the amount of the data that is explained by the clusters is optimised. But how do we decide on how many centroids to start with?</p>
+                        <p>To determine how many centroids we should use, the value of 'k', we will use an elbow plot. This plots how much of the data can be explained by an algorithm with k clusters. Obviously more clusters would increase the amount of the data the algorithm can explain. However, the marginal impact from adding another cluster reduces as we add more clusters. The optimal number of clusters would be where the value of k where there is a sudden change if the line, like an elbow.</p>
+                        <img class="img-fluid" src="/images/elbow_plot.png" width="700" height="300">
                     </div>
                 </div>
             </div>
