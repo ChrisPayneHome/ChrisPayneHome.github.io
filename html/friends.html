@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <p>Friends was a cultural phenomenon, pulling in millions of viewers during its 10 year run from 1994-2004. Even today you'll still find re-runs on Comedy Central and branded clothing on sale. A significant part of this success is because of the terrific writing staff. However, now the show has ended, would it be possible for an AI to fill the Friends-sized hole in the hearts of fans.</p>
-                        <p>As always, all the R and Python code I've written for this project is contained within</p>
+                        <p>As always, all the R and Python code I've written for this project is all on <a href="https://github.com/ChrisPayneHome/Friends">my GitHub</a>.</p>
                         <h1>'The One with all the Data'</h1>
                         <p>The data we'll be using for this project is taken from a <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-09-08">2020 edition</a> of the popular weekly data visualisation challenge 'Tidy Tuesday'. This edition not only contains data about the success of the show (no. of viewers per episode, IMDB rating, etc), but also a dataset of every line spoken by a character in the show. We'll use the former dataset to identify what data we'll use to train our model as it is simply not posible to train a model on the entire Friends script (I tried).</p>
                         <p>For this, we'll look at the average IMDB rating by season, to see if we can identify any outliers we can use as our data.</p> 
@@ -76,7 +76,7 @@
                         <p>With the model, we can then generate a scene using the model with a scene length and prompt. The average scene is around 1,681 words in length so we'll choose that length for our scene. While for the prompt we'll simply start with 'Scene Directions', as this is not only how pretty much all scenes start but because it'll also allow us to see what scene the model defines for the scene.</p>
                         <p>Now that now have these inputs, we can now generate the script. Running the model returns the following scene. I've formatted the generated text slightly so that it'll be easier to read, given that we had to remove the punctuation and capitalisation when cleaning the data.</p>
                         <h3>AI Generated Friends Scene:</h3>
-                        <p><b>Scene Directions:</b> Monica and Chandler's Apartment, Chandler is been as Chandler enters Monica and Monica are sitting in the kitchen table<br>
+                        <p><b>Scene Directions:</b> Monica and Chandler's Apartment. Chandler is been as Chandler enters Monica and Monica are sitting in the kitchen table<br>
                         <b>Rachel Green:</b> Hey<br>
                         <b>Phoebe Buffay:</b> Hey<br>
                         <b>Ross Geller:</b> Hi<br>
@@ -144,8 +144,8 @@
                         <b>The Doctor:</b> I mean, if you dont mean I was thinking I have to get rid of my life. Ya just chased the game and this is a twenty Philange<br>
                         <b>Ross Geller: </b>I was backpacking across Western Europe, then...<br>
                         <b>Phoebe Buffay: </b>Okay Oh Oh Oh My God I can't believe you guys. I can I was in the gift shop. I Mean, I'll never be great, it's you<br>
-                        <b>Rachel Green: </b>Oh My God, I can't believe you guys I love it<br>
-                        <b>Ross Geller: </b>What will Colbert what?<br>
+                        <b>Rachel Green: </b>Oh My God, I can't believe you guys. I love it<br>
+                        <b>Ross Geller: </b>What? Will Colbert what?<br>
                         <b>Ross Geller: </b>I'm sorry, I dont know Ross-really<br>
                         <b>Ross Geller: </b>Oh My God<br>
                         <b>Rachel Green: </b>What you need to get this<br>
@@ -175,7 +175,10 @@
                         <b>Monica Geller: </b>Oh My God<br>
                         <b>Joey Tribbiani: </b>No No No No No Great No No No...<br>
                         </p>
-                        <p>Joey's 'No's continued on for quite a while to I decided to cut them short.</p>
+                        <p>Looking at the output what is really interesting is how the model has picked up on some of the linguistic ideosyncrasies from the show. Generally though, the model output is a little non-sensical.</p>
+                        <h1>'The One with the Final Thoughts'</h1>
+                        <p>I don't think that the model is going to be competing for a writer's room spot anytime soon. However, this has been a really interesting project and I hope you've learnt a little bit about NLP modelling along the way.</p>
+                        <p>All the code for this project is contained on my 'Friends' repo on GitHub <a href="https://github.com/ChrisPayneHome/Friends">here</a>.</p>
                     </div>
                 </div>
             </div>
