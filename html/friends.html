@@ -6,7 +6,7 @@
         <meta name="description" content="Using AI to write a scene from the TV show Friends" />
         <meta name="author" content="Christian Payne" />
         <meta name= "image" property="og:image" content="https://chrispaynehome.github.io/images/friends.jpg"/>
-        <title>'The One with the AI Writer'</title>
+        <title>Friends scene text generation</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -42,8 +42,8 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
-                            <h1>'The One with the AI Writer'</h1>
-                            <h2 class="subheading">Using AI to write a scene from Friends</h2>
+                            <h1>Friends scene text generation</h1>
+                            <h2 class="subheading">'The One with the AI Writer'</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="../html/about.html">Christian Payne</a>
@@ -59,13 +59,123 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <p>Friends was a cultural phenomenom, pulling in millions of viewers during its 10 year run from 1994-2004. Even today you'll still find re-runs on Comedy Central and branded clothing on sale. A significant part of this success is because of the terrific writing staff. However, now the show has ended, would it be possible for an AI to fill the Friends-sized hole in the hearts of fans.</p>
+                        <p>Friends was a cultural phenomenon, pulling in millions of viewers during its 10 year run from 1994-2004. Even today you'll still find re-runs on Comedy Central and branded clothing on sale. A significant part of this success is because of the terrific writing staff. However, now the show has ended, would it be possible for an AI to fill the Friends-sized hole in the hearts of fans.</p>
+                        <p>As always, all the R and Python code I've written for this project is contained within</p>
                         <h1>'The One with all the Data'</h1>
                         <p>The data we'll be using for this project is taken from a <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-09-08">2020 edition</a> of the popular weekly data visualisation challenge 'Tidy Tuesday'. This edition not only contains data about the success of the show (no. of viewers per episode, IMDB rating, etc), but also a dataset of every line spoken by a character in the show. We'll use the former dataset to identify what data we'll use to train our model as it is simply not posible to train a model on the entire Friends script (I tried).</p>
                         <p>For this, we'll look at the average IMDB rating by season, to see if we can identify any outliers we can use as our data.</p> 
                         <img class="img-fluid" src="/images/friends_season_plot.png" width="700" height="300">
                         <p>Oh wow, a pretty strong consistentcy in the average quality between seasons. Perhaps this isn't the best approch for idetifying our data. Instead, maybe a better idea would be to look at the quality of individual episodes and select from the top 10 or so. Extracting the top episodes yields the following episodes that we'll use to train the model.</p>
                         <img class="img-fluid" src="/images/friends_table.png" width="700" height="300">
+                        <p>This looks promising. We can then extract the script data for these episodes and use that to train our model.</p>
+                        <h1>'The One with the LSTM'</h1>
+                        <p>For the model, we'll be using a type of neual network called an Long Short Term Memory (LSTM) model. This type of model is different to other types of neural networks in that it contains information about time when receiving input information. This makes it particularly good for dealing with language data as the placement of words is vital when constructing a sentence.</p>
+                        <img class="img-fluid" src="/images/friends_model.png" width="700" height="300">
+                        <p>This model took quite a while to train (> 1 day) and I've detailed the underlying achitecture above.</p>
+                        <h1>'The One with the AI Generated Script'</h1>
+                        <p>With the model, we can then generate a scene using the model with a scene length and prompt. The average scene is around 1,681 words in length so we'll choose that length for our scene. While for the prompt we'll simply start with 'Scene Directions', as this is not only how pretty much all scenes start but because it'll also allow us to see what scene the model defines for the scene.</p>
+                        <p>Now that now have these inputs, we can now generate the script. Running the model returns the following scene. I've formatted the generated text slightly so that it'll be easier to read, given that we had to remove the punctuation and capitalisation when cleaning the data.</p>
+                        <h3>AI Generated Friends Scene:</h3>
+                        <p><b>Scene Directions:</b> Monica And Chandlers Apartment Chandler Is Been As Chandler Enters Monica And Monica Are Sitting In The Kitchen Table<br>
+                        <b>Rachel Green:</b> Hey<br>
+                        <b>Phoebe Buffay:</b> Hey<br>
+                        <b>Ross Geller:</b> Hi<br>
+                        <b>Rachel Green:</b> Hi<br>
+                        <b>Monica Geller:</b> Hi<br>
+                        <b>Rachel Green:</b> Hi<br>
+                        <b>Monica Geller:</b> Hi<br>
+                        <b>Rachel Green:</b> Hi<br>
+                        <b>Monica Geller:</b> Hi<br>
+                        <b>Rachel Green:</b> Hi<br>
+                        <b>Monica Geller:</b> Oh My God<br>
+                        <b>Monica Geller:</b> What-what's the matter, was our late?<br>
+                        <b>Ross Geller:</b> Oh My God<br>
+                        <b>Rachel Green:</b> Oh My God<br>
+                        <b>Rachel Green:</b> Oh yeah, but you have to do you were in an country?<br>
+                        <b>Monica Geller:</b> That's right<br>
+                        <b>Chandler Bing:</b> Oh My God<br>
+                        <b>Rachel Green:</b> Oh My God<br>
+                        <b>Rachel Green:</b> Oh yeah, but you have to do you after me?<br>
+                        <b>Monica Geller:</b> Well I know, I shouldn't be so lucky to mess<br>
+                        <b>Monica Geller:</b> I'll see you getting married<br>
+                        <b>Chandler Bing:</b> I can't believe you guys. Mean we win, we have to do it<br>
+                        <b>Monica Geller:</b> What will Colbert? What do you say that?<br>
+                        <b>Ross Geller:</b> Oh yeah, Chandler you don't wanna get off the plane<br>
+                        <b>Ross Geller:</b> I know it was incredible but it was a couple of years or ago they are a big more<br>
+                        <b>Richard Burke:</b> Oh my god, I'm sorry I'm a one of me I think if you do I mean this was fair I mean i-i can be like it<br>
+                        <b>Monica Geller:</b> Oh My God<br>
+                        <b>Rachel Green:</b> I know I was a complete idiot. You won't bring him from there<br>
+                        <b>Ross Geller:</b> Okay<br>
+                        <b>Rachel Green: </b>Okay<br>
+                        <b>Ross Geller: </b>Hey<br>
+                        <b>Rachel Green:</b> Hi<br>
+                        <b>Rachel Green: </b>Okay<br>
+                        <b>Ross Geller:</b> Oh My God<br>
+                        <b>Rachel Green: </b>What?<br>
+                        <b>Phoebe Buffay: </b>Ahhh<br>
+                        <b>Joey Tribbiani: </b>Oh My God<br>
+                        <b>Phoebe Buffay: </b>Oh My God<br>
+                        <b>Rachel Green: </b>Oh yeah, but you have to do you after a little call them<br>
+                        <b>Phoebe Buffay: </b>Do you? Don't have to do it to know<br>
+                        <b>Ross Geller: </b>Yeah, yeah. I mean you should have to go up and...<br>
+                        <b>Rachel Green: </b>What?<br>
+                        <b>Joey Tribbiani: </b>Yeah, you know what? We have a bracelet but you don't do this<br>
+                        <b>Ross Geller:</b> Hey<br>
+                        <b>Rachel Green: </b>What?<br>
+                        <b>Phoebe Buffay: </b>Ahhh<br>
+                        <b>Joey Tribbiani: </b>Oh My God<br>
+                        <b>Joey Tribbiani: </b>What?<br>
+                        <b>Joey Tribbiani: </b>Yeah, you know what? We have a bracelet but you don't do this up now y'know y'know. I thought you might know that the baby's born would be at that they had a pact<br>
+                        <b>Rachel Green: </b>Oh My God! I'm sorry I'm a twenty person that is in the hardest Philange<br>
+                        <b>Air Stewardess:</b> Do you went into work on me? And I think you guys I am I was in love and I love them. I mean if I mean you are a little night if you do this<br>
+                        <b>Ross Geller:</b> Oh My God<br>
+                        <b>Rachel Green: </b>I don't know you liked Football<br>
+                        <b>Phoebe Buffay: </b>Yeah well I thought you should get a little more in Winter in life<br>
+                        <b>Ross Geller: </b>No, I can't believe you were sorry<br>
+                        <b>Ross Geller: </b>No No No No No No No No No No No No! Sure I've had a lot of fact that you said that is a little fun of Months<br>
+                        <b>Phoebe Buffay: </b>Oh My God! I can't believe this<br>
+                        <b>Rachel Green:</b> Okay<br>
+                        <b>Joey Tribbiani: </b>I know, I know I shouldn't. Know what I mean? You know I was any new name<br>
+                        <b>Joey Tribbiani: </b>Yeah I was. Never told them that was a Little Pig Club<br>
+                        <b>Ross Geller: </b>I know you know what. You're almost a movie of years in the tank one year<br>
+                        <b>Ross Geller: </b>Oh My God<br>
+                        <b>Rachel Green: </b>Yeah, I can't believe it<br>
+                        <b>Rachel Green: </b>I know! I had a idiot for the same time and tell it to be a girl to have to see it. And then I was a woman, and you don't mean I mean if you didnt mean do you bring it off<br>
+                        <b>The Doctor:</b> I mean, if you dont mean I was thinking I have to get rid of my life. Ya just chased the game and this is a twenty Philange<br>
+                        <b>Ross Geller: </b>I was backpacking across Western Europe, then...<br>
+                        <b>Phoebe Buffay: </b>Okay Oh Oh Oh My God I can't believe you guys. I can I was in the gift shop. I Mean, I'll never be great, it's you<br>
+                        <b>Rachel Green: </b>Oh My God, I can't believe you guys I love it<br>
+                        <b>Ross Geller: </b>What will Colbert what?<br>
+                        <b>Ross Geller: </b>I'm sorry, I dont know Ross-really<br>
+                        <b>Ross Geller: </b>Oh My God<br>
+                        <b>Rachel Green: </b>What you need to get this<br>
+                        <b>Ross Geller: </b>Oh My God, I can't believe you guys. Mean I love your parents with me, with the plane<br>
+                        <b>Rachel Green:</b> Oh My God<br>
+                        <b>Phoebe Buffay: </b>Unbelievable<br>
+                        <b>Joey Tribbiani: </b>Hey<br>
+                        <b>Phoebe Buffay: </b>Oh My God<br>
+                        <b>Rachel Green: </b>Oh yeah<br>
+                        <b>Ross Geller: </b>I don't know what you're thinking<br>
+                        <b>Dave Thomas Founder Of Wendys Gail:</b> I'm Gail<br>
+                        <b>Chandler Bing: </b>Well, we have a little something<br>
+                        <b>Chandler Bing: </b>I don't know, maybe Churchcamp?<br>
+                        <b>Monica Geller: </b>That's true, but I saw you were in an honest having time<br>
+                        <b>Joey Tribbiani: </b>Yeah<br>
+                        <b>Chandler Bing: </b>Well, you know what? We do<br>
+                        <b>Chandler Bing: </b>Well, I'm just being a deal time and a time. And I mean, I'm gonna be okay good time you dont know that is, you know. They dont know what do you know what he wants me to me<br>
+                        <b>Monica Geller: </b>No no, we talked to do<br>
+                        <b>Monica Geller: </b>I don't know what do you say me like it<br>
+                        <b>Monica Geller: </b>Oh yeah, well I've know that I was backpacking across Western Europe<br>
+                        <b>Joey Tribbiani: </b>You know what? We have to do it up<br>
+                        <b>Chandler Bing: </b>Well, I thought you know what? You're just gonna get pregnant<br>
+                        <b>Monica Geller: </b>Oh God<br>
+                        <b>Chandler Bing: </b>Oh My God<br>
+                        <b>Joey Tribbiani: </b>What?<br>
+                        <b>Joey Tribbiani: </b>Yeah, you know what? We have to do this is fair<br>
+                        <b>Monica Geller: </b>Oh My God<br>
+                        <b>Joey Tribbiani: </b>No No No No No Great No No No...<br>
+                        </p>
+                        <p>Joey's 'No's continued on for quite a while to I decided to cut them short.</p>
                     </div>
                 </div>
             </div>
