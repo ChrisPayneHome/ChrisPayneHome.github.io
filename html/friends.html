@@ -70,7 +70,7 @@
                         <p>This looks promising. We can then extract the script data for these episodes and use that to train our model.</p>
                         <h1>'The One with the LSTM'</h1>
                         <p>For the model, we'll be using a type of neual network called an Long Short Term Memory (LSTM) model. This type of model is different to other types of neural networks in that it contains information about previous inputs when receiving further input information. This makes it particularly good for dealing with language data as the placement of words is vital when constructing a sentence, where the order of words is vital.</p>
-                        <p>Without knowing the order of previous letters, predicting the next one would be particularly difficult. For example, what letter comes after 'i'? But if we know that the full sequence of letters was 'My name i', it becomes much easier to predict the next letter. This is the benefit of using an LSTM model.</p>
+                        <p>Without knowing the order of previous letters, predicting the next one would be particularly difficult. For example, what letter comes after 'i'? But if we know that the full sequence of letters was 'My name i', it becomes much easier to predict the next letter 's'. This is the benefit of using an LSTM model.</p>
                         <img class="img-fluid" src="/images/friends_model.png" width="700" height="300">
                         <p>This model took quite a while to train (> 1 day) and I've detailed the underlying achitecture above.</p>
                         <h1>'The One with the AI Generated Script'</h1>
@@ -176,7 +176,7 @@
                         <b>Monica Geller: </b>Oh My God<br>
                         <b>Joey Tribbiani: </b>No No No No No Great No No No...<br>
                         </p>
-                        <p>Looking at the output what is really interesting is how the model has picked up on some of the linguistic ideosyncrasies from the show. Generally though, the model output is a little non-sensical.</p>
+                        <p>Looking at the output what is really interesting is how the model has picked up on some of the linguistic ideosyncrasies from the show (particularly the repeated use of 'Oh My God'). Generally though, the model output is pretty nonsensical.</p>
                         <h1>'The One with the Final Thoughts'</h1>
                         <p>I don't think that the model is going to be competing for a writer's room spot anytime soon. However, this has been a really interesting project and I hope you've learnt a little bit about NLP modelling along the way.</p>
                         <p>All the code for this project is contained on my 'Friends' repo on GitHub <a href="https://github.com/ChrisPayneHome/Friends">here</a>.</p>
