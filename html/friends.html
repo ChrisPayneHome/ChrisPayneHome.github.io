@@ -69,7 +69,8 @@
                         <img class="img-fluid" src="/images/friends_table.png" width="700" height="300">
                         <p>This looks promising. We can then extract the script data for these episodes and use that to train our model.</p>
                         <h1>'The One with the LSTM'</h1>
-                        <p>For the model, we'll be using a type of neual network called an Long Short Term Memory (LSTM) model. This type of model is different to other types of neural networks in that it contains information about time when receiving input information. This makes it particularly good for dealing with language data as the placement of words is vital when constructing a sentence, where the order of words is vital.</p>
+                        <p>For the model, we'll be using a type of neual network called an Long Short Term Memory (LSTM) model. This type of model is different to other types of neural networks in that it contains information about previous inputs when receiving further input information. This makes it particularly good for dealing with language data as the placement of words is vital when constructing a sentence, where the order of words is vital.</p>
+                        <p>Without knowing the order of previous letters, predicting the next one would be particularly difficult. For example, what letter comes after 'i'? But if we know that the full sequence of letters was 'My name i', it becomes much easier to predict the next letter. This is the benefit of using an LSTM model.</p>
                         <img class="img-fluid" src="/images/friends_model.png" width="700" height="300">
                         <p>This model took quite a while to train (> 1 day) and I've detailed the underlying achitecture above.</p>
                         <h1>'The One with the AI Generated Script'</h1>
